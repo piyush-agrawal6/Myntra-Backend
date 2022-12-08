@@ -109,9 +109,13 @@ app.put("/update", async (req, res) => {
   }
 });
 async function updateStock(id, quantity) {
-  const product = await Product.findById(id);
-  product.stock -= quantity;
-  await product.save({ validateBeforeSave: false });
+  try {
+    const product = await Product.findById(id);
+    product.stock -= quantity;
+    await product.save({ validateBeforeSave: false });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 //delete product
