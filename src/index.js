@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
 
 //connecting to database
 const connect = async () => {
