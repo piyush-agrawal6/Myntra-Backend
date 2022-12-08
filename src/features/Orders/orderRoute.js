@@ -42,7 +42,7 @@ app.get("", async (req, res) => {
   try {
     const order = await Order.findById(req.query.id).populate(
       "user",
-      "name email"
+      "name email role"
     );
     if (!order) {
       return res.status(404).send({ message: "Order not found" });
