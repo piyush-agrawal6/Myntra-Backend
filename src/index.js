@@ -8,9 +8,8 @@ mongoose.set("strictQuery", false);
 
 //connecting to database
 const connect = async () => {
-  return mongoose.connect(process.env.DB_URl);
+  return mongoose.connect(process.env.DB_URL);
 };
-
 //use
 app.use(express.json());
 app.use(cors());
