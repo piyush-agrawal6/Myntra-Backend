@@ -14,7 +14,7 @@ app.post("/new", async (req, res) => {
     }
     const user = await User.create(req.body);
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRE,
+      expiresIn: process.env.JWT_EXPIRE, 
     });
     return res
       .status(201)
