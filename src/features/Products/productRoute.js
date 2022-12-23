@@ -85,9 +85,10 @@ app.get("/", async (req, res) => {
 });
 
 //get single product
-app.get("/:id", async (req, res) => {
+app.get("/detail", async (req, res) => {
+  console.log(req.query.id)
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.query.id);
     return res.status(200).send({ success: true, product });
   } catch (error) {
     return res.status(404).send({ error: error.message });

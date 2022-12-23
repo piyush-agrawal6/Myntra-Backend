@@ -30,4 +30,5 @@ app.use("/cart", cartRoutes);
 app.listen(process.env.PORT, async () => {
   await connect();
   console.log(`listening on http://localhost:${process.env.PORT}`);
+  console.log(process.env.DB_URL);
 });
