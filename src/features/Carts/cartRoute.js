@@ -1,5 +1,6 @@
 const Cart = require("./cartModel");
 const express = require("express");
+const { isAuthenticated } = require("../../middleware/auth");
 const app = express.Router();
 
 app.get("/", async (req, res) => {
@@ -12,7 +13,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.post("/", async (req, res) => {
+app.post("/", isAuthenticated, async (req, res) => {
   try {
     const { userId, productId, quantity } = req.body;
     const isProductExist = await Cart.findOne({ productId, userId });

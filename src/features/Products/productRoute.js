@@ -77,8 +77,8 @@ app.get("/", async (req, res) => {
     if (!products) {
       return res.status(404).send({ message: "Product not found" });
     }
-
-    return res.status(200).send({ success: true, products });
+    const productLength = products.length;
+    return res.status(200).send({ success: true, products, productLength });
   } catch (error) {
     return res.status(404).send({ error: error.message });
   }
