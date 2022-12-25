@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon",
     "dev": "nodemon"
   },
   "keywords": [],
@@ -15,7 +15,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.2",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "nodemon": "^2.0.20"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
