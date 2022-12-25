@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(cors());
 
 //routes imports
-const productRoutes = require("./features/Products/productRoute");
-const userRoutes = require("./features/Users/userRoute");
-const orderRoutes = require("./features/Orders/orderRoute");
-const cartRoutes = require("./features/Carts/cartRoute");
+const productRoutes = require("./src/features/Products/productRoute");
+const userRoutes = require("./src/features/Users/userRoute");
+const orderRoutes = require("./src/features/Orders/orderRoute");
+const cartRoutes = require("./src/features/Carts/cartRoute");
 
 //routes
 app.use("/product", productRoutes);
