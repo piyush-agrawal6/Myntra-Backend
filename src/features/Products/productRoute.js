@@ -29,6 +29,7 @@ app.get("/", async (req, res) => {
       orderBy,
       limit,
       page,
+      gender,
     } = req.query;
 
     const query = {};
@@ -41,6 +42,9 @@ app.get("/", async (req, res) => {
 
     if (category) {
       query.categories = category;
+    }
+    if (gender) {
+      query.gender = gender;
     }
 
     if (brand) {
