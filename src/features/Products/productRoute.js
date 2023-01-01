@@ -77,7 +77,12 @@ app.get("/", async (req, res) => {
       .sort({ [sort]: orderBy === "asc" ? 1 : orderBy === "desc" ? -1 : 0 })
       .limit(+limit)
       .skip((+page - 1) * limit);
-    const totalProduct = await Product.find({ gender });
+    let totalProduct;
+    if (gender) {
+      totalProduct = await Product.find({ gender });
+    } else {
+      totalProduct = await Product.find();
+    }
     if (!products) {
       return res.status(404).send({ message: "Product not found" });
     }
