@@ -30,6 +30,7 @@ app.get("/", async (req, res) => {
       limit,
       page,
       gender,
+      categories,
     } = req.query;
 
     const query = {};
@@ -41,7 +42,10 @@ app.get("/", async (req, res) => {
     }
 
     if (category) {
-      query.categories = category;
+      query.category = category;
+    }
+    if (categories) {
+      query.categories = categories;
     }
     if (gender) {
       query.gender = gender;
