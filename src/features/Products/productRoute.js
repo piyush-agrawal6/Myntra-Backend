@@ -49,7 +49,6 @@ app.get("/", async (req, res) => {
     }
     if (categories) {
       query.categories = categories;
-      query.gender = "women";
     }
 
     if (brand) {
