@@ -77,12 +77,13 @@ app.get("/", async (req, res) => {
       .sort({ [sort]: orderBy === "asc" ? 1 : orderBy === "desc" ? -1 : 0 })
       .limit(+limit)
       .skip((+page - 1) * limit);
-
+    const totalProduct = await Product.find({ gender });
     if (!products) {
       return res.status(404).send({ message: "Product not found" });
     }
     const productLength = products.length;
-    return res.status(200).send({ success: true, products, productLength });
+    const totalPage = totalProduct/productLength
+    return res.status(200).send({ success: true, products, productLength , totalPage});
   } catch (error) {
     return res.status(404).send({ error: error.message });
   }
