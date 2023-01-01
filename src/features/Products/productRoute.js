@@ -82,8 +82,10 @@ app.get("/", async (req, res) => {
       return res.status(404).send({ message: "Product not found" });
     }
     const productLength = products.length;
-    const totalPage = totalProduct/productLength
-    return res.status(200).send({ success: true, products, productLength , totalPage});
+    const totalPage = totalProduct.length / productLength;
+    return res
+      .status(200)
+      .send({ success: true, products, productLength, totalPage });
   } catch (error) {
     return res.status(404).send({ error: error.message });
   }
