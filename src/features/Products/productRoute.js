@@ -44,11 +44,12 @@ app.get("/", async (req, res) => {
     if (category) {
       query.category = category;
     }
-    if (categories) {
-      query.categories = categories;
-    }
     if (gender) {
       query.gender = gender;
+    }
+    if (categories) {
+      query.categories = categories;
+      query.gender = "women";
     }
 
     if (brand) {
