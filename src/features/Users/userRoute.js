@@ -33,7 +33,7 @@ app.post("/login", async (req, res) => {
       return res.status(400).send({ message: "User does not exist" });
     }
     if (user.password != password) {
-      return res.status(400).send({ message: "Password is incorrect" });
+      return res.send({ message: "Password is incorrect" });
     }
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIRE,
