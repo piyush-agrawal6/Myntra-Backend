@@ -30,7 +30,7 @@ app.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).send({ message: "User does not exist" });
+      return res.send({ message: "User does not exist" });
     }
     if (user.password != password) {
       return res.send({ message: "Password is incorrect" });
@@ -40,7 +40,7 @@ app.post("/login", async (req, res) => {
     });
     return res.status(200).send({ message: "Login successful", token, user });
   } catch (error) {
-    return res.status(404).send({ message: "Something went wrong" });
+    return res.send({ message: "Something went wrong" });
   }
 });
 
