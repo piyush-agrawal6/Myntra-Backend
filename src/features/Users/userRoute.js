@@ -10,11 +10,11 @@ app.post("/new", async (req, res) => {
     const { email } = req.body;
     const getUser = await User.findOne({ email });
     if (getUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.json({ message: "User already exists" });
     }
     const user = await User.create(req.body);
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRE, 
+      expiresIn: process.env.JWT_EXPIRE,
     });
     return res
       .status(201)
