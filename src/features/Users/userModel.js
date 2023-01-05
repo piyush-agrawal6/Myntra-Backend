@@ -19,6 +19,18 @@ const userSchema = new mongoose.Schema(
       required: true,
       minLength: 4,
     },
+    phone: {
+      type: Number,
+      default: null,
+    },
+    gender: {
+      type: String,
+      default: null,
+    },
+    shipping: {
+      type: String,
+      default: null,
+    },
     avatar: {
       type: String,
       default: "https://cdn-icons-png.flaticon.com/512/219/219983.png",
