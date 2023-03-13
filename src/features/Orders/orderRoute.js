@@ -118,7 +118,7 @@ async function updateStock(id, quantity) {
   }
 }
 
-//delete product
+//delete order
 app.delete("/delete", async (req, res) => {
   try {
     const order = await Order.findById(req.query.id);

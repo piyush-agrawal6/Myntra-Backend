@@ -15,19 +15,15 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     description: {
-      type: String,
-      required: true,
-    },
-    color: {
-      type: String,
-      required: true,
-    },
-    gender: {
-      type: String,
+      type: Array,
       required: true,
     },
     sizes: {
       type: Array,
+      required: true,
+    },
+    shapes: {
+      type: string,
       required: true,
     },
     price: {
@@ -44,44 +40,18 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    rating: {
-      type: Number,
-      default: 0,
-    },
-    count: {
-      type: Number,
+    subcategory: {
+      type: String,
       required: true,
     },
-    categories: {
+    category: {
       type: String,
       required: true,
     },
     stock: {
       type: Number,
       required: true,
-      maxLength: 4,
       default: 1,
-    },
-    reviews: [
-      {
-        name: { type: String, required: true },
-        ratings: { type: Number, required: true },
-        comment: { type: String, required: true },
-        user: {
-          type: mongoose.Schema.ObjectId,
-          ref: "User",
-          required: true,
-        },
-      },
-    ],
-    user: {
-      type: mongoose.Schema.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
     },
   },
   {

@@ -14,11 +14,6 @@ const userSchema = new mongoose.Schema(
       unique: true,
       validate: validator.isEmail,
     },
-    password: {
-      type: String,
-      required: true,
-      minLength: 4,
-    },
     phone: {
       type: Number,
       default: null,
@@ -34,12 +29,7 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String,
       default: "https://cdn-icons-png.flaticon.com/512/219/219983.png",
-    },
-    role: {
-      type: String,
-      enum: ["user", "admin"],
-      default: "user",
-    },
+    }
   },
   {
     versionKey: false,

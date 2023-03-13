@@ -81,6 +81,7 @@ app.get("/", async (req, res) => {
       .sort({ [sort]: orderBy === "asc" ? 1 : orderBy === "desc" ? -1 : 0 })
       .limit(+limit)
       .skip((+page - 1) * limit);
+      
     let totalProduct;
     if (gender) {
       totalProduct = await Product.find({ gender });
